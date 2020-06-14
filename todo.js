@@ -2,8 +2,9 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 	toDoInput = toDoForm.querySelector("input"),
 	toDoList = document.querySelector(".js-toDoList");
 
-const TODOS_LS = "toDos";
-
+const TODOS_LS = "toDos",
+	TODO_CS = "toDo",
+	DELBTN_CS = "delBtn";
 
 let toDos = [];
 
@@ -32,8 +33,10 @@ function paintToDo(text) {
 	const span = document.createElement("span");
 	const newId = toDos.length + 1;
 	
-	delBtn.innerText = "❌";
+	delBtn.innerText = "X";
 	delBtn.addEventListener("click", deleteToDo);
+	delBtn.classList.add(DELBTN_CS);
+	span.classList.add(TODO_CS);
 	span.innerText = text;
 	li.appendChild(span);
 	li.appendChild(delBtn);
@@ -55,6 +58,12 @@ function handleSubmit(event) {
 }
 
 function loadToDos() {
+	const userName = localStorage.getItem(USER_LS);
+	if (userName === null) {
+		toDoForm.classList.remove(SHOWING_CN);
+	} else {
+		toDoForm.classList.add(SHOWING_CN);
+	}
 	const loadedToDos = localStorage.getItem(TODOS_LS);
 	if (loadedToDos !== null) {
 		const parsedToDos = JSON.parse(loadedToDos);
