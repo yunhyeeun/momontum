@@ -1,5 +1,5 @@
-const toDoForm = document.querySelector(".js-toDoForm"),
-	toDoInput = toDoForm.querySelector("input"),
+// const toDoForm = document.querySelector(".js-toDoForm"),
+const toDoInput = toDoForm.querySelector("input"),
 	toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos",
@@ -59,11 +59,6 @@ function handleSubmit(event) {
 
 function loadToDos() {
 	const userName = localStorage.getItem(USER_LS);
-	if (userName === null) {
-		toDoForm.classList.remove(SHOWING_CN);
-	} else {
-		toDoForm.classList.add(SHOWING_CN);
-	}
 	const loadedToDos = localStorage.getItem(TODOS_LS);
 	if (loadedToDos !== null) {
 		const parsedToDos = JSON.parse(loadedToDos);

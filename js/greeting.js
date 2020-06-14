@@ -1,6 +1,7 @@
 const form = document.querySelector(".js-form"),
-	input = form.querySelector("input");
-	greeting = document.querySelector(".js-greetings");
+	input = form.querySelector("input"),
+	greeting = document.querySelector(".js-greetings"),
+	toDoForm = document.querySelector(".js-toDoForm");
 
 const USER_LS = "currentUser",
 	SHOWING_CN = "showing";
@@ -8,6 +9,7 @@ const USER_LS = "currentUser",
 function saveName(text) {
 	localStorage.setItem(USER_LS, text);
 }
+
 function handleSubmit(event) {
 	event.preventDefault();
 	const currentValue = input.value;
@@ -23,6 +25,7 @@ function askForName() {
 function paintGreeting(text) {
 	form.classList.remove(SHOWING_CN);
 	greeting.classList.add(SHOWING_CN);
+	toDoForm.classList.add(SHOWING_CN);
 	const date = new Date();
 	const hours = date.getHours();
 	let time = ``;
