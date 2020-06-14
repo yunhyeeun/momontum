@@ -91,6 +91,7 @@ li {
 
 .toDo {
 	margin-right: 50px;
+	text-shadow: 4px 4px 10px #555555;
 }
 
 .delBtn {
@@ -106,7 +107,7 @@ li {
 }
 
 .delBtn:hover {
-	background-color: rgb(0,0,0,0.5);
+	background-color: rgb(0,0,0,0.3);
 	animation: fadeIn 0.5s linear;
 
 }
